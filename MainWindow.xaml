@@ -50,7 +50,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="3" Content="Добавить" Margin="250,11,250,10" Click="Button_Click"/>
+        <Button Grid.Row="3" Content="Добавить" Margin="250,6,250,15" Click="Button_Click"/>
         <ComboBox x:Name="cbSort"   DisplayMemberPath="DisplayName" ItemsSource="{Binding SortItem}"  Grid.Row="0" Margin="385,7,215,6" SelectionChanged="cbSort_SelectionChanged_1"/>
         <ComboBox Grid.Row="0" HorizontalAlignment="Left" Margin="600,7,0,6" Width="200"/>
         <TextBox Grid.Row="0" HorizontalAlignment="Left" Width="200" Margin="170,7,0,1"/>

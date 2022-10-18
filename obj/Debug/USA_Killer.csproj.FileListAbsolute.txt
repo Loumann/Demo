@@ -24,3 +24,5 @@ C:\Users\student\source\repos\Romanov\USA_Killer\USA_Killer\obj\Debug\USA_Killer
 C:\Users\student\source\repos\Romanov\USA_Killer\USA_Killer\obj\Debug\App.baml
 C:\Users\student\source\repos\Romanov\USA_Killer\USA_Killer\obj\Debug\Remote.g.cs
 C:\Users\student\source\repos\Romanov\USA_Killer\USA_Killer\obj\Debug\Remote.baml
+C:\Users\student\source\repos\Romanov\USA_Killer\USA_Killer\obj\Debug\Page1.g.cs
+C:\Users\student\source\repos\Romanov\USA_Killer\USA_Killer\obj\Debug\Page1.baml

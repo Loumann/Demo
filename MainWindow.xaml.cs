@@ -58,15 +58,17 @@ namespace USA_Killer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Remote remote = new Remote();
+            
         }
 
 
-        public void search() 
-        
-        {
-           
-        }
+        //public void Search() 
+        //{
+        //    ICollectionView view = CollectionViewSource.GetDefaultView(_List_materials.ItemsSource);
+        //    if (view == null) return;
+        //    int viewCounter = 0;
+        //    view.Filter = new System.Predicate<object>(obj => { bool isView = ((Db.Agent).obj) })
+        //}
 
        
 
