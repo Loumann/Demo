@@ -14,17 +14,29 @@ namespace USA_Killer.Db
     
     public partial class Agent
     {
+        private string _image;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Agent()
         {
             this.Shipment = new HashSet<Shipment>();
         }
-    
         public string type_agent { get; set; }
         public string name_agent { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
-        public string logotip { get; set; }
+        public string logotip {
+            get
+            {
+                if (_image == null)
+                {
+                    return "Image/picture.png";
+                }
+                return _image;
+            }
+            set => _image = value;
+        }
+        
         public string andres { get; set; }
         public int prioritet { get; set; }
         public string director { get; set; }

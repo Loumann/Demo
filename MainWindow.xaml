@@ -8,13 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="311*"/>
-            <RowDefinition Height="46*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="175*"/>
+            <RowDefinition Height="23*"/>
         </Grid.RowDefinitions>
-        <Image Source="/photos/Приятный шелест.ico" HorizontalAlignment="Left"/>
-        <ListView x:Name="_List_materials" ItemsSource="{Binding Agent}"  HorizontalContentAlignment="Stretch" SelectionChanged="_List_materials_SelectionChanged" Margin="0,1,0,25" Grid.Row="2">
+        <Image Source="/photos/Приятный шелест.ico" HorizontalAlignment="Left" Width="58" Margin="10,0,0,349" Grid.RowSpan="3"/>
+        <ListView x:Name="_List_materials" ItemsSource="{Binding agents}"  HorizontalContentAlignment="Stretch" SelectionChanged="_List_materials_SelectionChanged" Margin="0,1,0,25" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="10,10,10,0" BorderBrush="Black" BorderThickness="2">
@@ -26,20 +26,23 @@
                             </Grid.ColumnDefinitions>
                             <Image Source="{Binding logotip}" Grid.Column="0">
                             </Image>
+
                             <TextBlock Margin="30,0,10,0" Grid.Column="1">
                                 <Run Text="{Binding type_agent}"></Run>
                                 <Run Text=" | "></Run>
-                                <Run Text="{Binding Name}"></Run>
+                                <Run Text="{Binding name_agent}"></Run>
                                 <LineBreak></LineBreak>
-                                <Run Text="Минимальное количество: "></Run>
-                                <Run Text="{Binding email}"></Run>
-                                <Run Text=" "></Run>
-                                <Run Text="{Binding Unit}"></Run>
+                                <Run Text="Продаж за год "></Run>
                                 <LineBreak></LineBreak>
-                                <Run FontWeight="Bold" Text="Поставщики: NETU"></Run>
+                                <Run Text="{Binding phone}"></Run>
+                                <LineBreak></LineBreak>
+                                
+                                <Run Text="Приоритетность:"></Run>
+                                <Run Text="{Binding prioritet}"></Run>
+                                <LineBreak></LineBreak>
                             </TextBlock>
                             <TextBlock Grid.Column="2">
-                                <Run Text="Остаток"></Run>
+                                <Run Text="ПРОЦЕНТЫ"></Run>
                                 <Run Text="{Binding CountInStock}"></Run>
                             </TextBlock>
                         </Grid>
@@ -48,12 +51,9 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Grid.Row="3" Content="Добавить" Margin="250,11,250,10" Click="Button_Click"/>
-        <ComboBox Grid.Row="1" Margin="300,7,300,6"/>
-        <ComboBox Grid.Row="1" HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="1" HorizontalAlignment="Left" Width="280" Height="30"></TextBox>
-        <Frame Name="MainFrame">
-            
-        </Frame>
+        <ComboBox x:Name="cbSort"   DisplayMemberPath="DisplayName" ItemsSource="{Binding SortItem}"  Grid.Row="0" Margin="385,7,215,6" SelectionChanged="cbSort_SelectionChanged_1"/>
+        <ComboBox Grid.Row="0" HorizontalAlignment="Left" Margin="600,7,0,6" Width="200"/>
+        <TextBox Grid.Row="0" HorizontalAlignment="Left" Width="200" Margin="170,7,0,1"/>
 
     </Grid>
 </Window>

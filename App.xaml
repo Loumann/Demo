@@ -13,8 +13,9 @@
         <Style TargetType="ComboBox">
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="Height" Value="25"></Setter>
-            <Setter Property="Background" Value="#C6D7FF"></Setter>
-            <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+            
+            <Setter Property="Background" Value="#46B29D"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
         </Style>
     </Application.Resources>
 </Application>

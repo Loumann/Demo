@@ -1,6 +1,14 @@
 ﻿using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows;
-
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
+using System.Windows;
+using System.Linq;
 
 namespace USA_Killer
 {
@@ -15,22 +23,22 @@ namespace USA_Killer
 
     public partial class MainWindow : Window
     {
-        public static Db.Ilin_TZEntities conn = new Db.Ilin_TZEntities(); 
+       Db.Ilin_TZEntities conn = new Db.Ilin_TZEntities(); 
 
         public static ObservableCollection<Db.Type> types { get; set; }
         public static ObservableCollection<Db.Shipment> shipments { get; set; }
         public static ObservableCollection<Db.Product> products { get; set; }
-        public static ObservableCollection<Db.Agent> _agents { get; set; }
+        public static ObservableCollection<Db.Agent> agents { get; set; }
 
 
 
         public ObservableCollection<SortItem> SortItem { get; set; } = new ObservableCollection<SortItem>()
         {
             new SortItem() { DisplayName =  "Нет сортировки", PropertyName = null, Ascending = true},
-            new SortItem() { DisplayName =  "По возрастанию наименования", PropertyName = "Name", Ascending = true},
-            new SortItem() { DisplayName =  "По убыванию наименования", PropertyName = "Name", Ascending = false},
-            new SortItem() { DisplayName =  "По возрастанию остатка", PropertyName = "CountInStock", Ascending = true},
-            new SortItem() { DisplayName =  "По убыванию остатка", PropertyName = "CountInStock", Ascending = false}
+            new SortItem() { DisplayName =  "По возрастанию наименования", PropertyName = "name_agent", Ascending = true},
+            new SortItem() { DisplayName =  "По убыванию наименования", PropertyName = "name_agent", Ascending = false},
+            new SortItem() { DisplayName =  "По возрастанию остатка", PropertyName = "count_product", Ascending = true},
+            new SortItem() { DisplayName =  "По убыванию остатка", PropertyName = "count_product", Ascending = false}
         };
 
        
@@ -38,7 +46,8 @@ namespace USA_Killer
         public MainWindow()
         {
             InitializeComponent();
-            _agents = new ObservableCollection<Db.Agent>();
+            agents = new ObservableCollection<Db.Agent>(conn.Agent.ToList());
+            DataContext = this;
         }
 
         private void _List_materials_SelectionChanged(object sender, RoutedEventArgs e)
@@ -50,7 +59,31 @@ namespace USA_Killer
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Remote remote = new Remote();
-            MainFrame.NavigationService.Navigate(remote);
+        }
+
+
+        public void search() 
+        
+        {
+           
+        }
+
+       
+
+        private void cbSort_SelectionChanged_1(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var item = cbSort.SelectedItem as SortItem;
+
+            var view = CollectionViewSource
+                .GetDefaultView(_List_materials.ItemsSource);
+
+            var direction = item.Ascending ?
+                ListSortDirection.Ascending :
+                ListSortDirection.Descending;
+
+            view.SortDescriptions.Clear();
+            view.SortDescriptions.Add(new SortDescription(item.PropertyName, direction));
+
         }
     }
 }
