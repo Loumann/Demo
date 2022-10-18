@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c93bc0b7c11a4711a644755244781e1e" Name="Diagram1">
+        <EntityTypeShape EntityType="Ilin_TZModel.Agent" Width="1.5" PointX="3" PointY="1" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Ilin_TZModel.Product" Width="1.5" PointX="3" PointY="6" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Ilin_TZModel.Shipment" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Ilin_TZModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" FillColor="Red" />
+        <EntityTypeShape EntityType="Ilin_TZModel.Type" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" FillColor="255, 255, 128" />
+        <AssociationConnector Association="Ilin_TZModel.FK_Agent_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="Ilin_TZModel.FK_Shipment_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="Ilin_TZModel.FK_Shipment_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
